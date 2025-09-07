@@ -27,10 +27,12 @@ class WorkOSController extends Controller
 
     public function handleCallback(Request $request)
     {
-        $profile = (new \WorkOS\SSO())->getProfileAndToken([
+        $response = (new \WorkOS\SSO())->getProfileAndToken([
             'code' => $request->get('code'),
             'clientId' => config('workos.client_id'),
-        ])->profile;
+        ]);
+
+        $profile = $response->profile;
 
         $user = \App\Models\User::where('workos_id', $profile->id)->first();
 
@@ -45,6 +47,10 @@ class WorkOSController extends Controller
 
         auth()->login($user);
 
+        $request->session()->put('workos_access_token', $response->accessToken);
+        $request->session()->put('workos_session_id', $profile->raw['sid']);
+
         return redirect('/');
     }
+
 }
