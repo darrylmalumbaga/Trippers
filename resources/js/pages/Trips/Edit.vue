@@ -77,17 +77,17 @@ const submit = () => {
                                 {{ form.errors.privacy_level }}
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="grid gap-2">
                                 <label for="start_date">Start Date</label>
-                                <Input id="start_date" type="date" v-model="form.start_date" />
+                                <Input id="start_date" type="date" v-model="form.start_date" class="w-full" />
                                 <div v-if="form.errors.start_date" class="text-sm text-red-500">
                                     {{ form.errors.start_date }}
                                 </div>
                             </div>
                             <div class="grid gap-2">
                                 <label for="end_date">End Date</label>
-                                <Input id="end_date" type="date" v-model="form.end_date" />
+                                <Input id="end_date" type="date" v-model="form.end_date" class="w-full" />
                                 <div v-if="form.errors.end_date" class="text-sm text-red-500">
                                     {{ form.errors.end_date }}
                                 </div>

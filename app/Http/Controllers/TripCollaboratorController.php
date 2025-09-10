@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\TripCollaborator;
 use Illuminate\Http\Request;
 
+use App\Mail\TripInvitationMail;
+use Illuminate\Support\Facades\Mail;
+
 class TripCollaboratorController extends Controller
 {
     public function store(Request $request, Trip $trip)
@@ -26,6 +29,8 @@ class TripCollaboratorController extends Controller
         }
 
         $trip->collaborators()->attach($user->id, ['role' => 'editor']);
+
+        Mail::to($user)->send(new TripInvitationMail($trip, auth()->user()));
 
         return back();
     }

@@ -179,6 +179,10 @@ const rightNavItems: NavItem[] = [
                             <UserMenuContent :user="auth.user" />
                         </DropdownMenuContent>
                     </DropdownMenu>
+
+                    <Link href="/trips/create">
+                        <Button>New Trip</Button>
+                    </Link>
                 </div>
             </div>
         </div>

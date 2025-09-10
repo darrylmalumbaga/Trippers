@@ -1,0 +1,37 @@
+/* Wanderlog-inspired theme */
+
+:root {
+    --wanderlog-primary: #4a90e2;
+    --wanderlog-secondary: #f5a623;
+    --wanderlog-background: #f8f8f8;
+    --wanderlog-text: #333;
+    --wanderlog-card-background: #fff;
+    --wanderlog-border: #ddd;
+}
+
+body {
+    background-color: var(--wanderlog-background);
+    color: var(--wanderlog-text);
+}
+
+.dark body {
+    --wanderlog-background: #1a1a1a;
+    --wanderlog-text: #f8f8f8;
+    --wanderlog-card-background: #2a2a2a;
+    --wanderlog-border: #444;
+}
+
+.btn-primary {
+    background-color: var(--wanderlog-primary);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: var(--wanderlog-secondary);
+    color: #fff;
+}
+
+.card {
+    background-color: var(--wanderlog-card-background);
+    border: 1px solid var(--wanderlog-border);
+}
