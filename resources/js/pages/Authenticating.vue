@@ -4,9 +4,9 @@
     </div>
 </template>
 
-<script setup>
-import { onMounted } from 'vue';
+<script setup lang="ts">
 import { router } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 
 const props = defineProps({
     code: String,

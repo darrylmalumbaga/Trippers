@@ -35,3 +35,22 @@ export interface User {
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;
+
+export interface TripCollaborator {
+    id: number;
+    user: User;
+}
+
+export interface Trip {
+    id: number;
+    name: string;
+    description: string | null;
+    start_date: string | null;
+    end_date: string | null;
+    destination: string | null;
+    trip_type: string | null;
+    privacy_level: string;
+    days_left: number | null;
+    user: User;
+    trip_collaborators: TripCollaborator[];
+}
