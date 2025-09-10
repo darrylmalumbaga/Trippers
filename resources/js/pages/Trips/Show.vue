@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import AppLayout from '@/layouts/AppLayout.vue';
 import type { Trip } from '@/types';
-import { useForm } from '@inertiajs/vue3';
+import { useForm, router } from '@inertiajs/vue3';
 
 const props = defineProps<{
     trip: Trip;
@@ -16,6 +16,10 @@ const inviteForm = useForm({
 
 const inviteCollaborator = () => {
     inviteForm.post(`/trips/${props.trip.id}/collaborators`);
+};
+
+const removeCollaborator = (id: number) => {
+    router.delete(`/trips/collaborators/${id}`);
 };
 </script>
 
